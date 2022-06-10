@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Henry Challenge</h1>
+    <script>
+        //1)La funcion llamada sumaTodosImpares recibe como argumento un array de enteros, y debe devolver la suma total entre todos los imapres.
+        // Ej:
+        //sumaTodosImpares ([1,5,2,9,6,4]) devuleve 1 + 5 + 9= 15
+        
+        function sumaTodosImpares (array) {
+
+            return array.reduce((a, b) => (b % 2 ==! 0 ? a + b : a), 0);
+        }
+        console.log(sumaTodosImpares([1,5,2,9,6,4]));
+
+
+        //2)La funcion lla,ada 'string mas larga' recibe como argumento una frase (string) 'str'
+        //y debe devolver la palabra (string) mas larga que haya en esa frase (Es decir el de mayor cantidad de caracteres)
+        //Ej:
+        //stringMasLarga('Ayer fui a pasear a una plaza') debe retornar 'pasear'
+        //stringMasLarga('Me gusta mucho JavaScript') debe retornar 'javascript'
+        //Tip: podes usar el metodo de String 'split'
+
+        function stringMasLarga (str) {
+    
+            return str.split(' ').reduce((a, b) => (b.length > a.length ? b : a), '')
+        }
+        console.info(stringMasLarga('me gusta mucho javascript'));
+
+
+        //3)La funcion llamada 'esta offline' recibe como argument un array de objetos llamado usuarios y un string llamado nombre
+        // Cada objeto tiene un property 'nombre'.
+        //cada objeto tiene una property 'nombre' que es una string y otra llamada oneline que es un booleano.
+        //La funcion debe retornar true si el usuario se encuentra offline, de lo contrario false.
+        //estaOffline(usuarios, 'Agus') retorna true
+        //estaOffLine(usuarios, 'emi') retorna false
+        
+        function estaOffline (nombre) {
+
+            let users = [
+                {
+                    nombre: 'toni',
+                    online: true
+                },
+                {
+                    nombre: 'emi',
+                    online: true
+                },
+                {
+                    nombre: 'Agus',
+                    online: false
+                }
+            ];
+            
+        }
+        estaOffline('emi');
+    </script>
+</body>
+</html>
