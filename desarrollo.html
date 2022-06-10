@@ -561,6 +561,85 @@
     };
     rotate(['a', 'b', 'c']);
 
+    //48) Escriba una función addque agregue un elemento al final de una matriz. Sin embargo, el elemento solo debe agregarse si aún no está en la matriz.
+    // Ej: add([1, 2], 3)debería volver [1, 2, 3]y add([1, 2], 2)debería volver [1, 2].
+
+    function add(x, y) {
+      x.push(y);
+      let z = [...new Set(x)];
+      return console.log(z);
+    };
+    add([1, 2, 3, 4], 2);
+
+    //49) Escribe una función concatUp que concatene dos matrices. La matriz más larga debe agregarse a la matriz más corta. Si ambas matrices tienen la misma longitud, la segunda matriz debe agregarse a la primera matriz
+    // Ej: concatUp([1, 2], [3])debería volver [3, 1, 2] y concatUp([5, 7], [6, 8])debería volver [5, 7, 6, 8].
+
+    function concatUp(x, y) {
+      let z;
+      if (x.length > y.length) {
+        z = y.concat(x);
+      } else if (x.length === y.length) {
+        z = x.concat(y);
+      }
+      return console.log(z);
+    };
+    concatUp([5, 7], [6, 8]);
+
+
+    //50) Escriba una función halveque copie la primera mitad de una matriz. Con un número impar de elementos de matriz, el elemento central debe pertenecer a la primera mitad.
+    // Ej: halve([1, 2, 3, 4])debería volver [1, 2] o halve([2, 4, 5, 8, 9, 8])
+
+    function halve(n) {
+      let x = n.length / 2;
+      return console.log(n.slice(0, x));
+    };
+    halve([2, 4, 5, 8, 9, 10]);
+
+
+    //51) Escriba una función listque tome una matriz de palabras y devuelva una cadena concatenando las palabras en la matriz, separadas por comas y, la última palabra, por un 'y'. Una matriz vacía debería devolver una cadena vacía.
+    // Ej: list(['Huey', 'Dewey', 'Louie'])debería volver 'Huey, Dewey and Louie'.
+
+    function list(arr) {
+
+      if (arr.length === 0) {
+        return '';
+      }
+      if (arr.length === 1) {
+        return arr[0];
+      }
+
+      let wordsExLast = arr.slice(0, arr.length - 1);
+      let lastWord = arr[arr.length - 1];
+      return console.log(wordsExLast.join(', ') + ' and ' + lastWord);
+    };
+    list(['Huey', 'Dewey', 'Louie']);
+
+    //52) Escribe una función flatque aplane una matriz bidimensional con 3 entradas.
+    // Ej : flat(loshu)debería volver [4, 9, 2, 3, 5, 7, 8, 1, 6]. Así loshues el cuadrado mágico del ejemplo anterior
+
+    let row1 = [4, 9, 2];
+    let row2 = [3, 5, 7];
+    let row3 = [8, 1, 6];
+    let loshu = [row1, row2, row3];
+
+    function flat(arr) {
+      let a = arr[0];
+      let b = arr[1];
+      let c = arr[2];
+      let x = a.concat(b);
+      let y = x.concat(c);
+
+      return console.log(y);
+    };
+    flat(loshu);
+
+    //53) Escriba una función addque tome una cadena con una tarea de suma y devuelva su resultado como un número. Se debe sumar un número finito de números naturales. La tarea de suma es una cadena de la forma '1+19+...+281'.
+    // Ej: add('7+12+100')debería volver 119.
+
+    function add(arr) {
+      return console.log(eval(arr));
+    };
+    add('7+12+100');
 
     // const bunny = {
     //   name: 'gentleman',
