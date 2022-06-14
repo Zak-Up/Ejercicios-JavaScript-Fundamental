@@ -13,137 +13,142 @@
   <script>
     // 1) Programa una función que cuente el número de caracteres de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá 10.
 
-    const nroChar = (str) => {
-      console.log(str.length);
+    const contarCaracteres = (str) => {
+      return console.log(str.length);
     };
-    nroChar('Hello world');
-
+    contarCaracteres("Hello world");
 
     // 2) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".
 
-    const recText = (str, rec) => {
-      console.log(str.slice([rec]));
+    const recortarTexto = (str, rec) => {
+      return console.log(str.slice(rec));
     };
-    recText("Hola Mundo", 4);
-
+    recortarTexto("Me gusta JavaScript", 4);
 
     // 3) Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe. miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'].
 
-    const sepText = (str, sep) => {
-      console.log(str.split(sep))
-    };
-    sepText("Hola que tal", ' ');
+    const separarTexto = (str, sep) => {
+      return console.log(str.split(sep));
+    }
+    separarTexto("Hola mundo cruel", ' ');
 
 
     // 4) Programa una función que repita un texto X veces, pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo.
 
-    const repText = (str, rep) => {
-      console.log(str.repeat(rep));
+    const repetirTexto = (str, rep) => {
+      return console.log(str.repeat(rep));
     };
-    repText("Hola Mundo ", 3);
+    repetirTexto("Hola Mundoo", 4);
 
 
     // 5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
 
-    const revText = (str) => {
-      console.log(str.split('').reverse().join(''));
+    const revertirTexto = (str) => {
+      return console.log(str.split('').reverse().join(''));
     };
-    revText("Hola Mundo");
+    revertirTexto("Hola Mundo");
 
 
     // 6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
 
-    const findText = (str, exp) => {
+    const contarRep = (str, rep) => {
 
-      let i = 0,
-        contador = 0;
+      let repetido = 0;
+      i = 0;
 
       while (i !== -1) {
-        i = str.indexOf(exp, i);
+        i = str.indexOf(rep, i);
         if (i !== -1) {
+          repetido++;
           i++
-          contador++;
         }
-      } return console.log(contador);
+      }
+      return console.log(repetido);
     };
-    findText("Hola mundo Adios mundo", "mundo");
+    contarRep('Hola mundo adios mundo', 'mundo');
 
 
     // 7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
 
-    const textPalindrome = (str) => {
-
+    function palindromo(str) {
       str = str.toLowerCase();
 
       let alReves = str.split('').reverse().join('');
 
-      if (str !== alReves) {
-        console.log("No es palindromo");
+      if (str === alReves) {
+        console.log('Es palindromo')
       } else {
-        console.log("Si es palindromo");
-      };
-    };
-    textPalindrome("Salas");
-
+        console.log('No es palindromo')
+      }
+    }
+    palindromo("Salasar");
 
     // 8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
 
-    const patChar = (str, exp) => {
-
-      console.log(str.replace(new RegExp(exp, "ig"), ''));
+    const patronCaracteres = (str, pat) => {
+      return console.log(str.replace(new RegExp(pat, 'ig'), ''));
     };
-    patChar("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz");
+    patronCaracteres("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz");
 
 
     // 9) Programa una función que obtenga un numero aleatorio entre 501 y 600.
 
-    const mathRandom = console.log(Math.round((Math.random() * 100) + 500));
+    const numeroAleatorio = console.log(Math.floor((Math.random() * 100) + 500));
 
 
     // 10) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true. 
 
-    const numeroCapicua = (arr) => {
+    function numCapicua(num) {
+      num = num.toString();
 
-      arr = arr.toString();
+      let alReves = num.split('').reverse().join('');
 
-      let alReves = arr.split('').reverse().join('');
-
-      if (arr === alReves) {
-        console.log("Es palindrmo")
+      if (num === alReves) {
+        console.log('Es Capicua')
       } else {
-        console.log("No es palindrmo")
+        console.log('No es capicua')
       }
     };
-    numeroCapicua(2002);
+    numCapicua(2022);
 
 
     // 11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.
+
+    const numeroFactorial = (num) => {
+
+      let factorial = 1;
+
+      for (let i = num; i > 1; i--) {
+        factorial *= i;
+      }
+      return console.log(factorial);
+    };
+    numeroFactorial(5);
 
 
     // 12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
 
     const numeroPrimo = (num) => {
 
-      let divisible = false;
+      let primo = true;
 
       for (let i = 2; i < num; i++) {
-        if (num % i === 0)
-          divisible = true;
-      } return divisible
-        ? console.log("No es primo")
-        : console.log("Es primo")
+        if ((num % i) === 0) {
+          primo = false;
+          break;
+        }
+      } return console.log(primo);
     };
-    numeroPrimo(7);
+    numeroPrimo(8);
 
 
     // 13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
 
-    const numeroPar = (num) => {
-
-      if ((num % 2) === 0) {
-        console.log("Es par")
+    function numeroPar(num) {
+      if (num % 2 === 0) {
+        console.log("Es Par")
       } else {
-        console.log("Es impar")
+        console.log("Es Impar")
       }
     };
     numeroPar(29);
@@ -157,28 +162,13 @@
 
     // 16) Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800.
 
-    const aplicarDescuento = (monto, desc) => {
-      console.log(monto - (monto * desc) / 100);
+    function aplicarDescuento(monto, desc) {
+      return console.log(monto - (monto * desc) / 100);
     };
-    aplicarDescuento(1000, 2);
+    aplicarDescuento(1000, 20);
 
 
     // 17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).
-
-    const calcularAnios = (fecha) => {
-
-      let hoyMenosFecha = new Date().getTime() - fecha.getTime();
-      aniosEnMs = 1000 * 60 * 60 * 24 * 365;
-      aniosHumanos = Math.floor(hoyMenosFecha / aniosEnMs);
-
-      return (Math.sign(aniosHumanos) === -1)
-        ? console.log(`Faltan ${Math.abs(aniosHumanos)} años para el ${fecha.getFullYear()}`)
-        : (Math.sign(aniosHumanos) === 1)
-          ? console.info(`Han pasado ${aniosHumanos} años desde ${fecha.getFullYear()}`)
-          : console.info(`Estamos en el año actual ${fecha.getFullYear()}`)
-
-    };
-    calcularAnios(new Date(2002, 06, 06))
 
 
 
@@ -189,12 +179,13 @@
       let vocales = 0;
       consonantes = 0;
 
-      for (let letra of str) {
-        if (/[aeiou]/.test(letra)) vocales++
-        if (/[bcdfghjklmnpqrstvwxyz]/.test(letra)) consonantes++
-      } return console.log(`La palabra ${str} contiene ${vocales} vocales y ${consonantes} consonantes`);
+      for (letr of str) {
+        if (/^[aeiou]+$/.test(letr)) vocales++;
+        if (/^[bcdfghjklmnpqrstvwxyz]+$/.test(letr)) consonantes++
+      }
+      return console.log(`Vocales: ${vocales} Consonantes:${consonantes}`)
     };
-    contarLetras("Esternocleidomastoideo");
+    contarLetras("Hello world");
 
 
 
@@ -202,13 +193,11 @@
 
     const validarNombre = (str) => {
 
-      let valido = /^[a-zA-ZñÑ\s]+$/g.test(str);
+      let ExpReg = /^[a-zA-ZÑñ\s]+$/g.test(str);
 
-      return valido
-        ? console.log("Valido")
-        : console.log("Invalido")
+      return ExpReg ? console.log('Nombre Valido') : console.log('Nombre Invalido');
     };
-    validarNombre("Andres Restrepo");
+    validarNombre('Andres455 Restrepo');
 
 
 
@@ -219,146 +208,117 @@
     //21) Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25].
 
     const numeroCuadrado = (num) => {
-      console.log({
+      return console.log({
         original: num,
-        alCuadrado: num.map((el) => el * el)
-      });
+        alCuadrado: num.map(el => el * el)
+      })
     };
-    numeroCuadrado([1, 16, 25]);
+    numeroCuadrado([1, 4, 5]);
 
 
 
     //22) Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].
 
-    const numeroMayor = (num) => {
-      console.log({
-        mayor: Math.max(...num),
-        menor: Math.min(...num)
+    const numerosAB = (arr) => {
+      return console.log({
+        original: arr,
+        Altos: Math.max(...arr),
+        Bajo: Math.min(...arr)
       })
     };
-    numeroMayor([1, 4, 5, 99, -60])
+    numerosAB([1, 4, 5, 99, -60]);
 
 
 
     //23) Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.
 
-    const ordenarNumeros = (num) => {
-      console.log({
-        pares: num.filter((el) => el % 2 === 0),
-        impares: num.filter((el) => el % 2 === 1)
+    const numbers = (arr) => {
+      return console.log({
+        pares: arr.filter(el => el % 2 === 0),
+        impares: arr.filter(el => el % 2 === 1)
       })
     };
-    ordenarNumeros([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])
+    numbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])
 
 
 
     //24) Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente, pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5] }.
 
-    const numeros = (num) => {
-
-      let asc = num.map(el => el).sort();
-      let desc = num.map(el => el).sort().reverse();
-
-      const ascendentes = [...new Set(asc)];
-
-      const descendentes = [...new Set(desc)];
-
+    const ordenarArreglo = (arr) => {
       console.log({
-        asc: ascendentes,
-        desc: descendentes
+        asc: arr.sort(),
+        desc: arr.map(el => el).sort().reverse()
       })
     };
-    numeros([7, 5, 7, 8, 6]);
+    ordenarArreglo([7, 5, 7, 8, 6]);
 
 
     //25) Programa una función que dado un arreglo de elementos, elimine los duplicados, pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true].
 
-    const elimineDuplicado = (arr) => {
-      console.log([...new Set(arr)])
-    };
-    elimineDuplicado(["x", 10, "x", 2, "10", 10, true, true])
+    function sinDuplicados(arr) {
+      return console.log([...new Set(arr)])
+    }
+    sinDuplicados(["x", 10, "x", 2, "10", 10, true, true]);
 
 
 
-    //26) Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.
+    //26) Programa una función que dado un arreglo de números obtenga la suma, pe. suma([9,8,7,6,5,4,3,2,1,0]) devolverá 45.
 
-    const promedio = (arr) => {
-      console.log(arr.reduce((a, b) => a + b))
-    };
-    promedio([9, 8, 7, 6, 5, 4, 3, 2, 1, 0])
+    function suma(arr) {
+      console.log(arr.reduce((x, y) => x + y))
+    }
+    suma([9, 8, 7, 6, 5, 4, 3, 2, 1, 0]);
 
 
 
     //27) Haz retornar solo el nombre de los empleados.
-
-    // let empleados = [
-    //     {name: 'Jhon', salary: 90000, hireDate: 'July 1, 2010'},
-    //     {name: 'David', salary: 75000, hireDate: 'August 15, 2009'},
-    //     {name: 'Ana', salary: 80000, hireDate: 'December 12, 2011'}
-    // ];
-
-    const nombres = () => {
+    function nombres() {
       let empleados = [
         { name: 'Jhon', salary: 90000, hireDate: 'July 1, 2010' },
         { name: 'David', salary: 75000, hireDate: 'August 15, 2009' },
         { name: 'Ana', salary: 80000, hireDate: 'December 12, 2011' }
       ];
-      console.log(empleados.map(el => el.name))
-    };
+      return console.log(empleados.map(el => el.name))
+    }
     nombres();
 
 
 
+
+
     //28) Haz retornar los instrumentos de precio mayor a 75000.
-
-    // let instrumentos = [
-    //     {name: 'Guitar', price: 90000, hireDate: '2010'},
-    //     {name: 'Drums', price: 75000, hireDate: '2009'},
-    //     {name: 'Keys', price: 80000, hireDate: '2011'}
-    // ];
-
-    const instruments = () => {
+    function precios() {
 
       let instrumentos = [
         { name: 'Guitar', price: 90000, hireDate: '2010' },
         { name: 'Drums', price: 75000, hireDate: '2009' },
         { name: 'Keys', price: 80000, hireDate: '2011' }
       ];
-      console.log(instrumentos.filter((el) => el.price > 75000))
-    };
-    instruments();
+
+      return console.log(instrumentos.filter((el) => el.price > 75000))
+    }
+    precios();
 
 
 
     //29) Convierte en mayusculas los nombres
+    function nombreMayus() {
 
-    // let nombres = [
-    //     {name: 'Jhon', salary: 90000, hireDate: 'July 1, 2010'},
-    //     {name: 'David', salary: 75000, hireDate: 'August 15, 2009'},
-    //     {name: 'Ana', salary: 80000, hireDate: 'December 12, 2011'}
-    // ];
-
-    const nombresMayus = () => {
-      let empleados = [
+      let nombres = [
         { name: 'Jhon', salary: 90000, hireDate: 'July 1, 2010' },
         { name: 'David', salary: 75000, hireDate: 'August 15, 2009' },
         { name: 'Ana', salary: 80000, hireDate: 'December 12, 2011' }
       ];
-      console.log(empleados.map(el => el.name.toUpperCase()))
-    };
-    nombresMayus();
+      return console.log(nombres.map(el => el.name.toUpperCase()));
+    }
+    nombreMayus();
+
+
 
 
     //30) Devuelve los juguetes de medio y alto precio
 
-    // let juguetes = [
-    //     {name: 'Ball', price: 90000, hireDate: '2010'},
-    //     {name: 'Car', price: 75000, hireDate: '2009'},
-    //     {name: 'Doll', price: 80000, hireDate: '2011'},
-    //     {name: 'One', price: 180000, hireDate: '2011'}
-    // ];
-
-    const toys = () => {
+    const precioMayor = () => {
 
       let juguetes = [
         { name: 'Ball', price: 90000, hireDate: '2010' },
@@ -366,22 +326,26 @@
         { name: 'Doll', price: 80000, hireDate: '2011' },
         { name: 'One', price: 180000, hireDate: '2011' }
       ];
-      console.log({
+
+      return console.log({
         alto: juguetes.filter(el => el.price > 90000),
-        medio: juguetes.filter(el => el.price > 75000 && el.price < 91000)
+        medio: juguetes.filter(el => el.price > 75000 && el.price < 180000)
       })
+
     };
-    toys();
+    precioMayor();
 
 
 
 
     //31) Crea una funcion que ordene los numeros 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 de forma descendente usando sort().
 
-    const orderNums = (arr) => {
-      console.log(arr.sort((a, b) => b - a))
+    const orderNum = (arr) => {
+      let order = arr.sort((x, y) => y - x)
+
+      return console.log(order.toString())
     };
-    orderNums([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15])
+    orderNum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]);
 
 
 
@@ -389,15 +353,8 @@
 
     //32) Crea una funcion que ordene los elementos de mayor a menor precio usando sort();
 
-    // let games = [
-    //     {name: 'God of War', price: 95000, hireDate: '2010'},
-    //     {name: 'Prince of persia', price: 75000, hireDate: '2009'},
-    //     {name: 'Halo', price: 85000, hireDate: '2011'},
-    //     {name: 'Budokai', price: 185000, hireDate: '2005'},
-    //     {name: 'Eleven_Soccer', price: 285000, hireDate: '2000'}
-    // ];
+    function gamesP() {
 
-    const juegos = () => {
       let games = [
         { name: 'God of War', price: 95000, hireDate: '2010' },
         { name: 'Prince of persia', price: 75000, hireDate: '2009' },
@@ -406,257 +363,137 @@
         { name: 'Eleven_Soccer', price: 285000, hireDate: '2000' }
       ];
 
-      console.log(games.sort((a, b) => b.price - a.price))
-    };
-    juegos();
+      return console.log(games.sort((x, y) => y.price - x.price));
+    }
+    gamesP();
 
     //33) Crea una funcion que sume el valor total de los arriendos con el metodo reduce();
 
-    // let arriendos = [
-    //     {name: 'Jhon', precio: 900000, hireDate: 'July 1, 2010'},
-    //     {name: 'David', precio: 750000, hireDate: 'August 15, 2009'},
-    //     {name: 'Ana', precio: 800000, hireDate: 'December 12, 2011'},
-    //     {name: 'Andres', precio: 120000, hireDate: 'December 12, 2011'}
-    // ];
+    const arriendosP = () => {
 
-    const rent = () => {
       let arriendos = [
         { name: 'Jhon', precio: 900000, hireDate: 'July 1, 2010' },
         { name: 'David', precio: 750000, hireDate: 'August 15, 2009' },
         { name: 'Ana', precio: 800000, hireDate: 'December 12, 2011' },
         { name: 'Andres', precio: 120000, hireDate: 'December 12, 2011' }
       ];
-      console.log(arriendos.reduce((a, b) => a + b.precio, 0))
-    };
-    rent();
+      return console.log(arriendos.reduce((x, y) => x + y.precio, 0))
+    }
+    arriendosP();
 
     //34) La funcion llamada sumaTodosImpares recibe como argumento un array de enteros, y debe devolver la suma total entre todos los imapres.
     // Ej:
     //sumaTodosImpares ([1,5,2,9,6,4]) devuleve 1 + 5 + 9= 15
 
     const sumaTodosImpares = (arr) => {
-      console.log(arr.reduce((a, i) => i % 2 !== 0 ? a + i : a))
+      return console.log(arr.reduce((a, x) => x % 2 === 1 ? x + a : a))
     };
     sumaTodosImpares([1, 5, 2, 9, 6, 4]);
+
 
     //35) Escriba una función shortCut que tome dos cadenas y devuelva las letras iniciales de estas cadenas.
     // Ej: Ejemplo: shortCut('Amnesty', 'International')debería volver 'AI'
 
-    function shortCut(strA, strB) {
-      return console.log(strA.charAt(0) + strB.charAt(0));
+    function shortCut(a, b) {
+      return console.log(a.charAt(0) + b.charAt(0))
     };
     shortCut('Amnesty', 'International');
+
 
     //36) Escriba una función firstChar que devuelva el primer carácter que no es un espacio cuando se pasa una cadena.
     // Ej: Ejemplo: firstChar(' Rosa Parks ')debería volver 'R'
 
     function firstChar(str) {
-      return console.log(str.trim().charAt(0));
-    };
+      return console.log(str.trim().charAt(0))
+    }
     firstChar(' Rosa Parks ');
+
 
     //37) Escriba una función indexOfIgnoreCase tomando dos cadenas y determinando el indice o la aparición de la segunda cadena en la primera cadena.(indexOf) La función debe ser insensible a mayúsculas y minúsculas.
     //Ej: Ejemplo: indexOfIgnoreCase('bit','it') y indexOfIgnoreCase('bit','IT') deberían devolver 1.
 
-    function indexOfIgnoreCase(strA, strB) {
-      return console.log(strA.toLowerCase().indexOf(strB.toLowerCase()));
-    };
-    indexOfIgnoreCase('bit', 'IT');
 
     //38) Escriba una función secondIndexOf, tomando dos strings y determinando la segunda aparición de la segunda string en la primera string. Si la cadena de búsqueda no aparece dos veces, debe devolver -1.
     // Ej: secondIndexOf('White Rabbit', 'it')debería volver 10
-
-    function secondIndexOf(strA, strB) {
-      let firstIndex = strA.indexOf(strB);
-      return console.log(strA.indexOf(strB, firstIndex + 1))
-    };
-    secondIndexOf('White Rabbit', 'it');
 
 
     //39 Escriba una función firstWord, tomando una cadena y devolviendo la primera palabra de esa cadena. La primera palabra son todos los caracteres hasta el primer espacio.
     //Ej: firstWord('see and stop')debería volver 'see'.
 
-    function firstWord(str) {
-      let space = str.indexOf(' ');
-      return console.log(str.substr(str, space));
-    };
-    firstWord('see and stop');
-
 
     //40) Escriba una función normalize que reemplace '-'con '/'en una cadena de fecha.
     //Ej:  normalize('20-05-2017')debería volver '20/05/2017'.
-
-    function normalize(str) {
-      let first = str.replace('-', '/');
-      return console.log(first.replace('-', '/'));
-    };
-    normalize('20-05-2017');
 
 
     //41) Escribe una función hypotenuseque calcule la longitud de la hipotenusa de un triángulo rectángulo. La longitud de las dos piernas se pasa a la función. Consejo: En un triángulo rectángulo es válido el teorema de Pitágoras. Si a y b son las longitudes de los dos catetos y c es la longitud de la hipotenusa, se cumple lo siguiente: a² + b² = c². Dado que se aplica 3² + 4² = 5².
     //Ej: hypotenuse(3, 4)debería devolver 5.
 
-    function hypotenuse(x, y) {
-      let x2 = Math.pow(x, 2)
-      let y2 = Math.pow(y, 2)
-      let z = y2 + x2;
-      return console.log(Math.sqrt(z));
-    };
-    hypotenuse(3, 4);
-
 
     //42 Write a function midrange, that calculates the midrange of 3 numbers. The midrange is the mean of the smallest and largest number.
     // Ej: midrange(3, 9, 1) should return (9+1)/2 = 5.
 
-    function midrange(a, b, c) {
-      return console.log((Math.max(a, b, c) + Math.min(a, b, c)) / 2);
-    };
-    midrange(3, 9, 1);
-
-
-    //43) Escriba una función toArrayque tome 4 valores y devuelva estos valores en una matriz.
-    // Ej: toArray(5, 9, 10, 15)debe devolver la matriz [5, 9, 10, 15].
-
-    function toArray(a, b, c, d) {
-      let arr = [a, b, c, d]
-      return console.log(arr);
-    };
-    toArray(5, 9, 10, 15);
 
     //44) Escriba una función getFirstElementque tome una matriz y devuelva el primer elemento de la matriz
     // Ej: getFirstElement([1, 2])debería volver 1.
 
-    function getFirstElement(arr) {
-      return console.log(arr[0]);
-    };
-    getFirstElement([1, 2]);
 
     //45) Escribe una función setFirstElement que tome una matriz y una variable arbitraria. La variable debe insertarse como el primer elemento de la matriz. La matriz debe ser devuelta.
     // Ej: Ejemplo: setFirstElement([1, 2], 3)debería volver [3, 2].
-
-    function setFirstElement(x, y) {
-      x[0] = y;
-      return console.log(x);
-    };
-    setFirstElement([1, 2], 3);
 
 
     //46) Escriba una función getLastElementque tome una matriz y devuelva el último elemento de la matriz
     // Ej: Ejemplo: getLastElement([1, 2])debería volver 2.
 
-    function getLastElement(arr) {
-      let arrLast = arr.length - 1;
-      console.log(arr[arrLast]);
-    };
-    getLastElement([1, 2]);
-
-
     //47) Escribe una función rotateque haga rotar los elementos de un arreglo. Todos los elementos deben moverse una posición a la izquierda. El elemento 0 debe colocarse al final de la matriz. Se debe devolver la matriz rotada.
     // Ej: rotate(['a', 'b', 'c'])debería volver ['b', 'c', 'a'].
-
-    function rotate(arr) {
-      let r = arr.shift();
-      arr.push(r);
-      return console.log(arr);
-    };
-    rotate(['a', 'b', 'c']);
 
     //48) Escriba una función addque agregue un elemento al final de una matriz. Sin embargo, el elemento solo debe agregarse si aún no está en la matriz.
     // Ej: add([1, 2], 3)debería volver [1, 2, 3]y add([1, 2], 2)debería volver [1, 2].
 
-    function add(x, y) {
-      x.push(y);
-      let z = [...new Set(x)];
-      return console.log(z);
-    };
-    add([1, 2, 3, 4], 2);
-
     //49) Escribe una función concatUp que concatene dos matrices. La matriz más larga debe agregarse a la matriz más corta. Si ambas matrices tienen la misma longitud, la segunda matriz debe agregarse a la primera matriz
     // Ej: concatUp([1, 2], [3])debería volver [3, 1, 2] y concatUp([5, 7], [6, 8])debería volver [5, 7, 6, 8].
-
-    function concatUp(x, y) {
-      let z;
-      if (x.length > y.length) {
-        z = y.concat(x);
-      } else if (x.length === y.length) {
-        z = x.concat(y);
-      }
-      return console.log(z);
-    };
-    concatUp([5, 7], [6, 8]);
 
 
     //50) Escriba una función halveque copie la primera mitad de una matriz. Con un número impar de elementos de matriz, el elemento central debe pertenecer a la primera mitad.
     // Ej: halve([1, 2, 3, 4])debería volver [1, 2] o halve([2, 4, 5, 8, 9, 8])
 
-    function halve(n) {
-      let x = n.length / 2;
-      return console.log(n.slice(0, x));
-    };
-    halve([2, 4, 5, 8, 9, 10]);
-
-
     //51) Escriba una función listque tome una matriz de palabras y devuelva una cadena concatenando las palabras en la matriz, separadas por comas y, la última palabra, por un 'y'. Una matriz vacía debería devolver una cadena vacía.
     // Ej: list(['Huey', 'Dewey', 'Louie'])debería volver 'Huey, Dewey and Louie'.
 
-    function list(arr) {
-
-      if (arr.length === 0) {
-        return '';
-      }
-      if (arr.length === 1) {
-        return arr[0];
-      }
-
-      let wordsExLast = arr.slice(0, arr.length - 1);
-      let lastWord = arr[arr.length - 1];
-      return console.log(wordsExLast.join(', ') + ' and ' + lastWord);
-    };
-    list(['Huey', 'Dewey', 'Louie']);
 
     //52) Escribe una función flatque aplane una matriz bidimensional con 3 entradas.
-    // Ej : flat(loshu)debería volver [4, 9, 2, 3, 5, 7, 8, 1, 6]. Así loshues el cuadrado mágico del ejemplo anterior
+      // Ej : flat(loshu)debería volver [4, 9, 2, 3, 5, 7, 8, 1, 6]. Así loshues el cuadrado mágico del ejemplo anterior
 
-    let row1 = [4, 9, 2];
-    let row2 = [3, 5, 7];
-    let row3 = [8, 1, 6];
-    let loshu = [row1, row2, row3];
+      // let row1 = [4, 9, 2];
+      // let row2 = [3, 5, 7];
+      // let row3 = [8, 1, 6];
+      // let loshu = [row1, row2, row3];
 
-    function flat(arr) {
-      let a = arr[0];
-      let b = arr[1];
-      let c = arr[2];
-      let x = a.concat(b);
-      let y = x.concat(c);
 
-      return console.log(y);
-    };
-    flat(loshu);
 
-    //53) Escriba una función addque tome una cadena con una tarea de suma y devuelva su resultado como un número. Se debe sumar un número finito de números naturales. La tarea de suma es una cadena de la forma '1+19+...+281'.
-    // Ej: add('7+12+100')debería volver 119.
 
-    function add(arr) {
-      return console.log(eval(arr));
-    };
-    add('7+12+100');
+      //27) Programa una clase llamada Pelicula.
 
-    // const bunny = {
-    //   name: 'gentleman',
-    //   tasks: ["speak", "learn", "teach"],
-    //   showtalks: function (task) {
-    //     this.tasks.forEach((task) => {
-    //       console.log(this.name + " wants to :" + task)
-    //     })
-    //   }
-    // }
-    // bunny.showtalks();
+      // La clase recibirá un objeto al momento de instanciarse con los siguentes datos: id de la película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.
+      //   - Todos los datos del objeto son obligatorios.
+      //   - Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los
+      //      7 restantes números.
+      //   - Valida que el título no rebase los 100 caracteres.
+      //   - Valida que el director no rebase los 50 caracteres.
+      //   - Valida que el año de estreno sea un número entero de 4      dígitos.
+      //   - Valida que el país o paises sea introducidos en forma de arreglo.
+      //   - Valida que los géneros sean introducidos en forma de arreglo.
+      //   - Valida que los géneros introducidos esten dentro de los géneros
+      //      aceptados*.
+      //   - Crea un método estático que devuelva los géneros aceptados*.
+      //   - Valida que la calificación sea un número entre 0 y 10 pudiendo ser
+      //     decimal de una posición.
+      //   - Crea un método que devuelva toda la ficha técnica de la película.
+      //   - Apartir de un arreglo con la información de 3 películas genera 3
+      //     instancias de la clase de forma automatizada e imprime la ficha técnica
+      //     de cada película.
 
-    // for (let i = 1; i <= 9; i++) {
-    //   setTimeout(() => {
-    //     console.log(i);
-    //   }, 10)
-    // }
+      // * Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
 
   </script>
 </body>
