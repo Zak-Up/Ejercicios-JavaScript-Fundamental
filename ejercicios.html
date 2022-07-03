@@ -732,6 +732,44 @@
     };
     add('7+12+100');
 
+
+    //53)Escribe una funcion que devuelva el numero de alumnos mayores de 18 y menores de 18 años
+
+    function condicionales(edadAlumnos) {
+
+      let Mayores = edadAlumnos.filter((el) => el < 18 ? el.length + 1 : el);
+      let Menores = edadAlumnos.filter((el) => el >= 18 ? el.length + 1 : el);
+
+
+      return console.log(`Menores: ${Menores.length}, Mayores: ${Mayores.length}`);
+
+    }
+
+    condicionales([16, 21, 18, 20, 15, 17, 15]);
+
+    //53)  Crea un algoritmo que retorne la letra de la mitad que se encuentre en una palabra, si no hay letra en la mitad el programa retornara el mensaje: "La palabra no tiene mitad".
+
+    function mitad(palabra) {
+      let divisible = palabra.length % 2 === 1;
+      let posición = Math.round(palabra.length / 2) - 1;
+
+      return divisible
+        ? console.log(palabra.charAt(posición)) : console.log('La palabra no tiene mitad');
+    }
+    mitad('monitor');
+
+    //54)dada una lista de números, calcula la sumatoria de los pares y los impares por separado retorna el resultado dependiendo de la siguiente condición: Si la suma de los pares es mayor o igual que la suma de los impares, entonces el programa retornará la suma total de los números pares, en caso contrario retornará la suma total de los números impares.
+
+    function parImpar(listaDeNumeros) {
+      let par = listaDeNumeros.reduce((a, i) => i % 2 === 0 ? a + i : a, 0);
+      console.log(par);
+      let impar = listaDeNumeros.reduce((a, i) => i % 2 === 1 ? a + i : a, 0);
+      console.log(impar);
+      let res = par >= impar ? par : impar;
+      console.log(res);
+    }
+    parImpar([81, 69, 78, 64, 44, 7, 10]);
+
     //--) Programa una clase llamada Pelicula.
 
     // La clase recibirá un objeto al momento de instanciarse con los siguentes datos: id de la película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.
